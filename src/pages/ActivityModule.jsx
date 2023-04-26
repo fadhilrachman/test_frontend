@@ -2,8 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
 import ModalDelete from "../components/ModalDelete";
+import { useNavigate } from "react-router-dom";
 
 const ActivityModule = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState();
   const [action, setAction] = useState("get");
   const [show, setShow] = useState(false);
@@ -48,9 +50,12 @@ const ActivityModule = () => {
 
       <div className="mt-24 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1 gap-10">
         {data?.map((val) => (
-          <div className="shadow-lg rounded p-6 px-6 h-64 hover:cursor-pointer flex flex-col justify-between">
+          <div
+            className="shadow-lg bg-white rounded p-6 px-6 h-64 hover:cursor-pointer flex flex-col justify-between"
+            onClick={() => navigate(`/detail/${val.id}`)}
+          >
             <span className="font-semibold text-2xl">{val.title}</span>
-            <div className="text-neutral-500 flex justify-between items-center">
+            <div className="text-neutral-400 flex justify-between items-center">
               <span>5 Oktober 2023</span>
               <i
                 class="bi bi-trash text-2xl"
