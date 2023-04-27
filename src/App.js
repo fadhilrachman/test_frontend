@@ -8,7 +8,7 @@ import DetailActivity from "./pages/DetailActivity";
 
 function App() {
   return (
-    <div className="bg-neutral-100 min-h-screen">
+    <div className="bg-neutral-100 min-h-screen font-popinst">
       <Navbar />
       <Routes>
         <Route path="/" element={<ActivityModule />} />

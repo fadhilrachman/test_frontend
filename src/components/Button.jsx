@@ -1,19 +1,19 @@
 import React from "react";
-
+import plus from "../assets/plus.svg";
 const Button = (props) => {
   return (
     <button
       {...props}
-      className={`bg-sky-500 rounded-full text-white px-8 flex justify-between font-medium py-4 ${
+      className={`bg-sky-500 rounded-full font-bold text-white px-8 flex justify-between items-center py-4 ${
         props.disabled && "opacity-50"
       }`}
     >
-      {props.variant == "todo" ? (
+      {props.variant === "todo" ? (
         "Simpan"
       ) : (
         <>
           {" "}
-          <i class="bi bi-plus-lg "></i>
+          <img src={plus} alt="" className="mr-3 h-4" srcset="" />
           Tambah
         </>
       )}

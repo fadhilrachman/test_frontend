@@ -60,13 +60,14 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
       contentLabel="Example Modal"
     >
       <div className=" bg-white rounded-lg flex justify-center flex-col w-7/12">
-        <div className="m-5 ">
+        <div className="m-5 flex justify-between">
           <span className="font-semibold">Tambah List Item</span>
+          <i class="bi bi-x-lg hover:cursor-pointer" onClick={onHide}></i>
         </div>
         <hr />
         <form action="" className="m-5">
           <div>
-            <label htmlFor="" className="text-sm">
+            <label htmlFor="" className="text-sm font-bold">
               Nama List Item
             </label>
             <br />
@@ -78,11 +79,11 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
             />
           </div>
           <div className="mt-4">
-            <label htmlFor="" className="text-sm">
+            <label htmlFor="" className="text-sm font-bold ">
               Priority
             </label>
             <br />
-            <div onBlur={handleBlur} tabIndex={1} className="w-max">
+            <div onBlur={handleBlur} tabIndex={1} className="w-max mt-3">
               <div
                 className="bg-neutral-100 py-3  px-4 w-52 border rounded-t  flex justify-between  items-center hover:cursor-pointer"
                 onClick={() => setOption({ is_active: !option.is_active })}
@@ -143,7 +144,7 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
           <Button
             variant="todo"
             onClick={handleCreate}
-            disabled={data.title == "" || data.priority == ""}
+            disabled={data.title === "" || data.priority === ""}
           />
         </div>
       </div>
