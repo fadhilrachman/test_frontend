@@ -48,7 +48,7 @@ const ActivityModule = () => {
       <div className="mt-5 ">
         <div className="flex items-center justify-between ">
           <h1 className="text-4xl font-semibold">Activity</h1>
-          <Button onClick={handleCreate} />
+          <Button onClick={handleCreate} data-cy="activity-add-button" />
         </div>
       </div>
 
@@ -75,6 +75,7 @@ const ActivityModule = () => {
               </span>
               <i
                 class="bi bi-trash text-2xl"
+                data-cy="activity-item-delete-button"
                 onClick={(e) => {
                   e.stopPropagation();
                   setShow({ modal: true });

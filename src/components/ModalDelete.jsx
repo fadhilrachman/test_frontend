@@ -17,12 +17,14 @@ const ModalDelete = ({ show, onHide, text, handleDelete }) => {
           <button
             className="bg-neutral-200 rounded-full  px-10 flex justify-between font-medium py-3"
             onClick={onHide}
+            data-cy="modal-delete-cancel-button"
           >
             Batal
           </button>{" "}
           <button
             className="bg-red-500 rounded-full text-white px-10 flex justify-between font-medium py-3"
             onClick={handleDelete}
+            data-cy="activity-item-delete-button"
           >
             Hapus
           </button>

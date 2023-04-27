@@ -117,14 +117,17 @@ const DetailActivity = () => {
     {
       name: "Terlama",
       function: filterOldData,
+      cy: "sort-selection",
     },
     {
       name: "A-Z",
       function: filterSortAZ,
+      cy: "todo-sort-button",
     },
     {
       name: "Z-A",
       function: filterSortZA,
+      cy: "todo-sort-button",
     },
     {
       name: "Belum Selesai",
@@ -147,6 +150,7 @@ const DetailActivity = () => {
               type="text"
               value={dataAct}
               onChange={(e) => setDataAct(e.target.value)}
+              data-cy="todo-title"
               onBlur={(e) => {
                 axios.patch(
                   `https://todo.api.devcode.gethired.id/activity-groups/${id}`,
@@ -190,7 +194,10 @@ const DetailActivity = () => {
 
       <div className="mt-10 ">
         {show.option && (
-          <div className="w-56 text-[#4A4A4A] font-medium absolute top-16 rounded-t-xl bg-white right-32 rounded-b-xl border-t border-x">
+          <div
+            className="w-56 text-[#4A4A4A] font-medium absolute top-16 rounded-t-xl bg-white right-32 rounded-b-xl border-t border-x"
+            data-cy="todo-sort-button"
+          >
             {listFilter.map((val) => (
               <div
                 className=" py-4 px-5 rounded border-b hover:cursor-pointer flex items-center justify-between"
@@ -199,6 +206,7 @@ const DetailActivity = () => {
                   val?.function();
                   setShow({ option: false });
                 }}
+                data-cy={val?.cy}
               >
                 {val.name}
                 {filter === val.name && <i class="bi bi-check2"></i>}
