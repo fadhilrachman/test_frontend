@@ -67,15 +67,18 @@ const ActivityModule = () => {
           <div
             className="shadow-lg bg-white rounded p-6 px-6 h-64 hover:cursor-pointer flex flex-col justify-between"
             onClick={() => navigate(`/detail/${val.id}`)}
+            data-cy="activity-item"
           >
-            <span className="font-bold text-2xl">{val.title}</span>
+            <span className="font-bold text-2xl" data-cy="activity-item-title">
+              {val.title}
+            </span>
             <div className="text-[#888888] font-semibold flex justify-between items-center">
-              <span>
+              <span data-cy="activity-item-date">
                 {dayjs(val.created_at).locale("id").format("D MMMM YYYY")}
               </span>
               <i
                 class="bi bi-trash text-2xl"
-                data-cy="activity-item-delete-button"
+                data-cy="modal-delete"
                 onClick={(e) => {
                   e.stopPropagation();
                   setShow({ modal: true });

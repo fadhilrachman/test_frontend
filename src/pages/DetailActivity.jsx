@@ -188,7 +188,10 @@ const DetailActivity = () => {
             <i class="bi bi-arrow-up  "></i>
             <i class="bi bi-arrow-down"></i>
           </div>
-          <Button onClick={() => setShow({ create: true })} />
+          <Button
+            onClick={() => setShow({ create: true })}
+            data-cy="activity-add-button"
+          />
         </div>
       </div>
 
