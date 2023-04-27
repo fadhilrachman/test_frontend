@@ -56,6 +56,7 @@ const ActivityModule = () => {
         <div className="flex justify-center  ">
           <img
             src={emptyActivity}
+            alt=""
             className="h-[400px] hover:cursor-pointer"
             onClick={() => handleCreate()}
           />
