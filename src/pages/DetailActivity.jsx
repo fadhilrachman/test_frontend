@@ -25,18 +25,15 @@ const DetailActivity = () => {
     option: false,
     input: false,
   });
-  const getData = async () => {
-    const datas = await axios.get(
+
+  useEffect(() => {
+    const datas = axios.get(
       `https://todo.api.devcode.gethired.id/activity-groups/${id}`
     );
     setData(datas.data.todo_items);
     setDataAct(datas.data.title);
     setAction("get");
-  };
-
-  useEffect(() => {
-    getData();
-  }, [action, show.create]);
+  }, [action, show.create, id]);
 
   console.log({ dataAct });
   const handleDelete = async () => {
@@ -204,7 +201,7 @@ const DetailActivity = () => {
                 }}
               >
                 {val.name}
-                {filter == val.name && <i class="bi bi-check2"></i>}
+                {filter === val.name && <i class="bi bi-check2"></i>}
               </div>
             ))}
           </div>
@@ -232,11 +229,11 @@ const DetailActivity = () => {
                 />
                 {color.map(
                   (item) =>
-                    item.priority == val.priority && (
+                    item.priority === val.priority && (
                       <span
                         className={` h-3 w-3 rounded-full ml-7`}
                         style={
-                          item.priority == val.priority
+                          item.priority === val.priority
                             ? {
                                 height: "10px",
                                 width: "10px",
