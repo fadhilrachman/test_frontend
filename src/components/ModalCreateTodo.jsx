@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactModal from "react-modal";
-import deletse from "../assets/delete.svg";
+import Button from "./Button";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
+  const { id } = useParams();
+  const [data, setData] = useState({
+    activity_group_id: id,
+    priority: "",
+    title: "",
+    color: "",
+  });
+  const [option, setOption] = useState({ is_active: false });
+  const handleBlur = () => {
+    console.log("haii");
+    setOption({ is_active: false });
+  };
+
+  const handleCreate = async () => {
+    const result = {
+      activity_group_id: data.activity_group_id,
+      priority: data.priority,
+      title: data.title,
+    };
+    console.log({ result });
+    await axios.post("https://todo.api.devcode.gethired.id/todo-items", result);
+    onHide();
+  };
   const options = [
     {
       priority: "very-high",
@@ -25,6 +50,7 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
       color: "#8942C1",
     },
   ];
+  console.log(data);
   return (
     <ReactModal
       isOpen={show}
@@ -45,38 +71,81 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
             </label>
             <br />
             <input
+              onChange={(e) => setData({ ...data, title: e.target.value })}
               type="text"
               placeholder="Tambahkan Nama Activity"
-              className="focus:outline-none border mt-3 px-3 py-3 rounded w-full"
+              className="focus:outline-none focus:border-sky-500 border mt-3 px-3 py-3 rounded w-full"
             />
           </div>
           <div className="mt-4">
             <label htmlFor="" className="text-sm">
-              Nama List Item
+              Priority
             </label>
             <br />
-
-            {/* {options.map((item) => (
+            <div onBlur={handleBlur} tabIndex={1} className="w-max">
               <div
-                className="border   p-3 rounded-t flex items-center justify-between w-52"
-                style={{ cursor: "pointer", backgroundColor: "white" }}
+                className="bg-neutral-100 py-3  px-4 w-52 border rounded-t  flex justify-between  items-center hover:cursor-pointer"
+                onClick={() => setOption({ is_active: !option.is_active })}
               >
-                <div className="flex items-center">
-                  <div
-                    className="bg- rounded-full me-2"
-                    style={{
-                      height: "10px",
-                      width: "10px",
-                      backgroundColor: item.color,
-                    }}
-                  ></div>
-                  <span>{item.priority}</span>
-                </div>
+                {data.priority ? (
+                  <div className="flex items-center">
+                    {" "}
+                    <div
+                      className=" rounded-full mr-3"
+                      style={{
+                        height: "10px",
+                        width: "10px",
+                        backgroundColor: data.color,
+                      }}
+                    ></div>
+                    {data.priority}
+                  </div>
+                ) : (
+                  " Pilih Priority"
+                )}
+                <i class="bi bi-caret-down-fill ml-14"></i>
               </div>
-            ))} */}
+
+              <div className="absolute rounded-b">
+                {option.is_active &&
+                  options.map((item) => (
+                    <div
+                      className="border bg-neutral-100 hover:bg-sky-500 hover:cursor-pointer   p-3  flex items-center justify-between w-52"
+                      onClick={() => {
+                        setData({
+                          ...data,
+                          priority: item.priority,
+                          color: item.color,
+                        });
+                        setOption({ is_active: !option.is_active });
+                      }}
+                    >
+                      <div className="flex items-center">
+                        <div
+                          className="bg- rounded-full me-2"
+                          style={{
+                            height: "10px",
+                            width: "10px",
+                            backgroundColor: item.color,
+                          }}
+                        ></div>
+                        <span>{item.priority}</span>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
           </div>
         </form>
-        <div className="flex justify-around"></div>
+        <hr />
+
+        <div className="flex justify-end m-7">
+          <Button
+            variant="todo"
+            onClick={handleCreate}
+            disabled={data.title == "" || data.priority == ""}
+          />
+        </div>
       </div>
     </ReactModal>
   );
