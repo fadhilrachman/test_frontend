@@ -27,15 +27,16 @@ const DetailActivity = () => {
   });
 
   useEffect(() => {
-    const datas = axios.get(
-      `https://todo.api.devcode.gethired.id/activity-groups/${id}`
-    );
-    setData(datas.data.todo_items);
-    setDataAct(datas.data.title);
+    axios
+      .get(`https://todo.api.devcode.gethired.id/activity-groups/${id}`)
+      .then((val) => {
+        setData(val?.data?.todo_items);
+        setDataAct(val?.data?.title);
+      });
     setAction("get");
   }, [action, show.create, id]);
 
-  console.log({ dataAct });
+  console.log({ data });
   const handleDelete = async () => {
     await axios.delete(
       `https://todo.api.devcode.gethired.id/todo-items/${detail.id}`
@@ -113,25 +114,27 @@ const DetailActivity = () => {
     {
       name: "Terbaru",
       function: filterNewData,
+      cy: "sort-latest",
     },
     {
       name: "Terlama",
       function: filterOldData,
-      cy: "sort-selection",
+      cy: "sort-oldest",
     },
     {
       name: "A-Z",
       function: filterSortAZ,
-      cy: "todo-sort-button",
+      cy: "sort-az",
     },
     {
       name: "Z-A",
       function: filterSortZA,
-      cy: "todo-sort-button",
+      cy: "sort-za",
     },
     {
       name: "Belum Selesai",
       function: filterStatus,
+      cy: "sort-unfinished",
     },
   ];
   return (
@@ -144,6 +147,7 @@ const DetailActivity = () => {
             className="hover:cursor-pointer"
             onClick={() => navigate("/")}
             srcset=""
+            data-cy="todo-back-button"
           />
           {show.input ? (
             <input
@@ -168,6 +172,7 @@ const DetailActivity = () => {
             <h1
               className="text-4xl font-[900] hover:cursor-pointer flex "
               onClick={() => setShow({ input: true })}
+              data-cy="todo-title"
             >
               {" "}
               {dataAct}
@@ -176,6 +181,7 @@ const DetailActivity = () => {
           <img
             src={pensil}
             alt=""
+            data-cy="todo-title-edit-button"
             className="ml-3 hover:cursor-pointer"
             onClick={() => setShow({ input: !show.input })}
           />
@@ -184,13 +190,14 @@ const DetailActivity = () => {
           <div
             className="border mr-3 rounded-full flex items-center justify-center h-14 w-14 hover:cursor-pointer text-neutral-500 bg-white "
             onClick={() => setShow({ option: !show.option })}
+            data-cy="todo-sort-button"
           >
             <i class="bi bi-arrow-up  "></i>
             <i class="bi bi-arrow-down"></i>
           </div>
           <Button
             onClick={() => setShow({ create: true })}
-            data-cy="activity-add-button"
+            data-cy="todo-add-button"
           />
         </div>
       </div>
@@ -199,7 +206,7 @@ const DetailActivity = () => {
         {show.option && (
           <div
             className="w-56 text-[#4A4A4A] font-medium absolute top-16 rounded-t-xl bg-white right-32 rounded-b-xl border-t border-x"
-            data-cy="todo-sort-button"
+            data-cy="sort-parent"
           >
             {listFilter.map((val) => (
               <div
@@ -223,19 +230,24 @@ const DetailActivity = () => {
               src={emptyTodo}
               alt=""
               className="hover:cursor-pointer"
+              data-cy="todo-empty-state"
               srcset=""
               onClick={() => setShow({ create: true })}
             />
           </div>
         ) : (
-          data?.map((val) => (
-            <div className="shadow-xl rounded mt-3 py-5 px-8 bg-white flex items-center justify-between">
+          data?.map((val, key) => (
+            <div
+              className="shadow-xl rounded mt-3 py-5 px-8 bg-white flex items-center justify-between"
+              data-cy={`todo-item-${key}`}
+            >
               <div className="flex items-center ">
                 <input
                   type="checkbox"
                   name="list"
                   checked={val.is_active === 0 && true}
                   id="coy"
+                  data-cy="todo-item-checkbox"
                   onChange={(e) => handleList(val.id, e.target.checked)}
                 />
                 {color.map(
@@ -261,9 +273,17 @@ const DetailActivity = () => {
                   className={`font-semibold ml-6 ${
                     val.is_active === 0 && "line-through"
                   }`}
+                  data-cy="todo-item-title"
                 >
                   {val.title}
                 </span>
+                <img
+                  src={pensil}
+                  alt=""
+                  data-cy="todo-item-edit-button"
+                  className="ml-4 hover:cursor-pointer"
+                  onClick={() => setShow({ create: !show.create })}
+                />
               </div>
               <i
                 class="bi bi-trash text-2xl text-neutral-400 hover:cursor-pointer"
@@ -271,6 +291,7 @@ const DetailActivity = () => {
                   setShow({ delete: true });
                   setDetail({ title: val.title, id: val.id });
                 }}
+                data-cy="todo-item-delete-button"
               ></i>
             </div>
           ))

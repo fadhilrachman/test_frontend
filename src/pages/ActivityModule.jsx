@@ -47,7 +47,9 @@ const ActivityModule = () => {
     <div className="px-32">
       <div className="mt-5 ">
         <div className="flex items-center justify-between ">
-          <h1 className="text-4xl font-semibold">Activity</h1>
+          <h1 className="text-4xl font-semibold" data-cy="activity-title">
+            Activity
+          </h1>
           <Button onClick={handleCreate} data-cy="activity-add-button" />
         </div>
       </div>
@@ -57,6 +59,7 @@ const ActivityModule = () => {
           <img
             src={emptyActivity}
             alt=""
+            data-cy="activity-empty-state"
             className="h-[400px] hover:cursor-pointer"
             onClick={() => handleCreate()}
           />
@@ -78,7 +81,7 @@ const ActivityModule = () => {
               </span>
               <i
                 class="bi bi-trash text-2xl"
-                data-cy="modal-delete"
+                data-cy="activity-item-delete-button"
                 onClick={(e) => {
                   e.stopPropagation();
                   setShow({ modal: true });

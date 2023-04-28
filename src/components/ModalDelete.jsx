@@ -9,10 +9,17 @@ const ModalDelete = ({ show, onHide, text, handleDelete }) => {
       className="fixed top-0 left-0 right-0 bottom-0 flex items-center font-display justify-center text-gray-900 font-index"
       overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50"
       contentLabel="Example Modal"
+      data-cy="modal-delete"
     >
       <div className="p-8 bg-white rounded-lg flex justify-center flex-col ">
-        <img src={deletse} alt="" className="h-20" srcset="" />
-        {text}
+        <img
+          src={deletse}
+          alt=""
+          className="h-20"
+          srcset=""
+          data-cy="modal-delete-icon"
+        />
+        <span data-cy="modal-delete-title">{text}</span>
         <div className="flex justify-around">
           <button
             className="bg-neutral-200 rounded-full  px-10 flex justify-between font-medium py-3"
@@ -24,7 +31,7 @@ const ModalDelete = ({ show, onHide, text, handleDelete }) => {
           <button
             className="bg-red-500 rounded-full text-white px-10 flex justify-between font-medium py-3"
             onClick={handleDelete}
-            data-cy="activity-item-delete-button"
+            data-cy="modal-delete-confirm-button"
           >
             Hapus
           </button>

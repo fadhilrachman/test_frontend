@@ -17,8 +17,15 @@ const ToastDelete = ({ show, onHide }) => {
       contentLabel="Example Modal"
     >
       <div className="px-8 py-6 bg-white rounded-lg flex justify-center  ">
-        <img src={alertActivity} alt="" srcset="" />
-        <span className="ml-4 font-medium">Activity berhasil dihapus</span>
+        <img
+          src={alertActivity}
+          alt=""
+          srcset=""
+          data-cy="modal-information-icon"
+        />
+        <span className="ml-4 font-medium" data-cy="modal-information-title">
+          Activity berhasil dihapus
+        </span>
       </div>
     </ReactModal>
   );
