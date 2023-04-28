@@ -148,7 +148,8 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
                         });
                         setOption({ is_active: !option.is_active });
                       }}
-                      data-cy={item.cy}
+                      // data-cy={item.cy}
+                      data-cy="modal-add-priority-item  "
                     >
                       <div className="flex items-center">
                         <div
@@ -174,7 +175,7 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
             variant="todo"
             data-cy="modal-add-save-button"
             onClick={handleCreate}
-            disabled={data.title === "" || data.priority === ""}
+            // disabled={data.title === "" || data.priority === ""}
           />
         </div>
       </div>

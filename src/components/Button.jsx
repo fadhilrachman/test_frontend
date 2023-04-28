@@ -4,7 +4,7 @@ const Button = (props) => {
   return (
     <button
       {...props}
-      className={`bg-sky-500 rounded-full font-bold text-white px-8 flex justify-between items-center py-4 ${
+      className={`bg-sky-500 rounded-full font-bold text-white px-8 flex justify-between z-[100] items-center py-4 ${
         props.disabled && "opacity-50"
       }`}
     >
