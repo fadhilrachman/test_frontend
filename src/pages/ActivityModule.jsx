@@ -60,7 +60,7 @@ const ActivityModule = () => {
             src={emptyActivity}
             alt=""
             data-cy="activity-empty-state"
-            className="h-[400px] hover:cursor-pointer"
+            className="h-[400px] hover:cursor-pointer "
             onClick={() => handleCreate()}
           />
         </div>
@@ -69,7 +69,7 @@ const ActivityModule = () => {
         {data?.map((val) => (
           <div className="shadow-lg bg-white rounded p-6 px-6 h-64 hover:cursor-pointer grid grid-rows-4 grid-flow-row gap-5 ">
             <div
-              className=" row-span-3 "
+              className=" row-span-3 z-[100]"
               onClick={() => navigate(`/detail/${val.id}`)}
               data-cy="activity-item"
             >
@@ -82,7 +82,7 @@ const ActivityModule = () => {
                 {dayjs(val.created_at).locale("id").format("D MMMM YYYY")}
               </p>
               <i
-                class="bi bi-trash text-2xl"
+                class="bi bi-trash text-2xl z-[100]"
                 data-cy="activity-item-delete-button"
                 onClick={(e) => {
                   setShow({ modal: true });
