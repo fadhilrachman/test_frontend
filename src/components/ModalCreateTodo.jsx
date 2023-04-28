@@ -110,7 +110,7 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
               onBlur={handleBlur}
               tabIndex={1}
               className="w-max mt-3"
-              data-cy="modal-add-priority-dropdown"
+              data-cy="modal-add-priority-item"
             >
               <div
                 className="bg-neutral-100 py-3  px-4 w-52 border rounded-t  flex justify-between  items-center hover:cursor-pointer"
@@ -149,7 +149,6 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
                         setOption({ is_active: !option.is_active });
                       }}
                       // data-cy={item.cy}
-                      data-cy="modal-add-priority-item  "
                     >
                       <div className="flex items-center">
                         <div

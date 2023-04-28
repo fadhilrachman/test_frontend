@@ -284,7 +284,7 @@ const DetailActivity = () => {
                 />
               </div>
               <i
-                class="bi bi-trash text-2xl text-neutral-400 hover:cursor-pointer"
+                class="bi bi-trash text-2xl text-neutral-400 hover:cursor-pointer z-[100]"
                 onClick={() => {
                   setShow({ delete: true });
                   setDetail({ title: val.title, id: val.id });
