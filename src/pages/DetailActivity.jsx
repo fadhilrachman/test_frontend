@@ -224,7 +224,7 @@ const DetailActivity = () => {
           </div>
         )}
         {data?.length === 0 ? (
-          <div className=" flex justify-center">
+          <div className=" flex justify-center z-[100]">
             <img
               src={emptyTodo}
               alt=""
@@ -237,7 +237,7 @@ const DetailActivity = () => {
         ) : (
           data?.map((val, key) => (
             <div
-              className="shadow-xl rounded mt-3 py-5 px-8 bg-white flex items-center justify-between"
+              className="shadow-xl rounded mt-3 py-5 px-8 bg-white flex items-center justify-between z-[100]"
               data-cy={`todo-item-${key}`}
             >
               <div className="flex items-center ">

@@ -63,9 +63,11 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
       className="fixed top-0 left-0 right-0 bottom-0 flex items-center font-display justify-center  "
       overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50"
       contentLabel="Example Modal"
-      data-cy="modal-add"
     >
-      <div className=" bg-white rounded-lg flex justify-center flex-col w-7/12">
+      <div
+        className=" bg-white rounded-lg flex justify-center flex-col w-7/12"
+        data-cy="modal-add"
+      >
         <div className="m-5 flex justify-between">
           <span className="font-semibold" data-cy="modal-add-title">
             Tambah List Item
