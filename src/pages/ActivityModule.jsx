@@ -67,14 +67,16 @@ const ActivityModule = () => {
       )}
       <div className="mt-24 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1 gap-10">
         {data?.map((val) => (
-          <div
-            className="shadow-lg bg-white rounded p-6 px-6 h-64 hover:cursor-pointer flex flex-col justify-between"
-            onClick={() => navigate(`/detail/${val.id}`)}
-            data-cy="activity-item"
-          >
-            <p className="font-bold text-2xl" data-cy="activity-item-title">
-              {val.title}
-            </p>
+          <div className="shadow-lg bg-white rounded p-6 px-6 h-64 hover:cursor-pointer grid grid-rows-4 grid-flow-row gap-5 ">
+            <div
+              className="border row-span-3 "
+              onClick={() => navigate(`/detail/${val.id}`)}
+              data-cy="activity-item"
+            >
+              <p className="font-bold text-2xl" data-cy="activity-item-title">
+                {val.title}
+              </p>
+            </div>
             <div className="text-[#888888] font-semibold flex justify-between items-center">
               <p data-cy="activity-item-date">
                 {dayjs(val.created_at).locale("id").format("D MMMM YYYY")}
@@ -83,7 +85,6 @@ const ActivityModule = () => {
                 class="bi bi-trash text-2xl"
                 data-cy="activity-item-delete-button"
                 onClick={(e) => {
-                  e.stopPropagation();
                   setShow({ modal: true });
                   setDetailName({ name: val.title, id: val.id });
                   console.log({ show });
