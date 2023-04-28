@@ -7,7 +7,7 @@ const Navbar = () => {
       data-cy="header-background"
     >
       <p className="text-white font-semibold text-2xl" data-cy="header-title">
-        Todo List App
+        TODO LIST APP
       </p>
     </div>
   );

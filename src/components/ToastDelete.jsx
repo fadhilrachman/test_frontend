@@ -13,10 +13,12 @@ const ToastDelete = ({ show, onHide }) => {
       }
       className="fixed top-0 left-0 right-0 bottom-0 flex items-center font-display justify-center text-gray-900 font-index"
       overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50"
-      data-cy="modal-information"
       contentLabel="Example Modal"
     >
-      <div className="px-8 py-6 bg-white rounded-lg flex justify-center  ">
+      <div
+        className="px-8 py-6 bg-white rounded-lg flex justify-center  "
+        data-cy="modal-information"
+      >
         <img
           src={alertActivity}
           alt=""

@@ -154,7 +154,6 @@ const DetailActivity = () => {
               type="text"
               value={dataAct}
               onChange={(e) => setDataAct(e.target.value)}
-              data-cy="todo-title"
               onBlur={(e) => {
                 axios.patch(
                   `https://todo.api.devcode.gethired.id/activity-groups/${id}`,
@@ -246,7 +245,6 @@ const DetailActivity = () => {
                   type="checkbox"
                   name="list"
                   checked={val.is_active === 0 && true}
-                  id="coy"
                   data-cy="todo-item-checkbox"
                   onChange={(e) => handleList(val.id, e.target.checked)}
                 />

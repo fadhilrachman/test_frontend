@@ -72,13 +72,13 @@ const ActivityModule = () => {
             onClick={() => navigate(`/detail/${val.id}`)}
             data-cy="activity-item"
           >
-            <span className="font-bold text-2xl" data-cy="activity-item-title">
+            <p className="font-bold text-2xl" data-cy="activity-item-title">
               {val.title}
-            </span>
+            </p>
             <div className="text-[#888888] font-semibold flex justify-between items-center">
-              <span data-cy="activity-item-date">
+              <p data-cy="activity-item-date">
                 {dayjs(val.created_at).locale("id").format("D MMMM YYYY")}
-              </span>
+              </p>
               <i
                 class="bi bi-trash text-2xl"
                 data-cy="activity-item-delete-button"

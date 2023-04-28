@@ -9,9 +9,11 @@ const ModalDelete = ({ show, onHide, text, handleDelete }) => {
       className="fixed top-0 left-0 right-0 bottom-0 flex items-center font-display justify-center text-gray-900 font-index"
       overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-50"
       contentLabel="Example Modal"
-      data-cy="modal-delete"
     >
-      <div className="p-8 bg-white rounded-lg flex justify-center flex-col ">
+      <div
+        className="p-8 bg-white rounded-lg flex justify-center flex-col "
+        data-cy="modal-delete"
+      >
         <img
           src={deletse}
           alt=""
