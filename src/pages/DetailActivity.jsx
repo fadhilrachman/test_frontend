@@ -189,7 +189,7 @@ const DetailActivity = () => {
           <div
             data-cy="todo-sort-button"
             className={`border mr-3 rounded-full ${
-              !show.create && !show.delete && "z-[100]"
+              !show.create && "z-[100]"
             } flex items-center justify-center h-14 w-14 hover:cursor-pointer text-neutral-500 bg-white `}
             onClick={() => setShow({ option: !show.option })}
           >
