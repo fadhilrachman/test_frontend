@@ -69,7 +69,9 @@ const ActivityModule = () => {
         {data?.map((val) => (
           <div className="shadow-lg bg-white rounded p-6 px-6 h-64 hover:cursor-pointer grid grid-rows-4 grid-flow-row gap-5 ">
             <div
-              className=" row-span-3 z-[100]"
+              className={`row-span-3 ${
+                !show.modal && !show.toast && "z-[100]"
+              }`}
               onClick={() => navigate(`/detail/${val.id}`)}
               data-cy="activity-item"
             >

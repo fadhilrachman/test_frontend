@@ -188,7 +188,9 @@ const DetailActivity = () => {
         <div className="flex items-center">
           <div
             data-cy="todo-sort-button"
-            className="border mr-3 rounded-full z-[100] flex items-center justify-center h-14 w-14 hover:cursor-pointer text-neutral-500 bg-white "
+            className={`border mr-3 rounded-full ${
+              !show.create && !show.delete && "z-[100]"
+            } flex items-center justify-center h-14 w-14 hover:cursor-pointer text-neutral-500 bg-white `}
             onClick={() => setShow({ option: !show.option })}
           >
             <i class="bi bi-arrow-up  "></i>
@@ -205,7 +207,7 @@ const DetailActivity = () => {
         {show.option && (
           <div
             className="w-56 text-[#4A4A4A] font-medium absolute top-16 rounded-t-xl bg-white right-32 rounded-b-xl border-t border-x"
-            data-cy="sort-parent"
+            data-cy="sort-selection"
           >
             {listFilter.map((val) => (
               <div
