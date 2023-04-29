@@ -209,7 +209,7 @@ const DetailActivity = () => {
           >
             {listFilter.map((val) => (
               <div
-                className=" py-4 px-5 z-[100] rounded border-b hover:cursor-pointer flex items-center justify-between"
+                className=" py-4 px-5 rounded border-b hover:cursor-pointer flex items-center justify-between"
                 onClick={() => {
                   setFilter(val.name);
                   val?.function();
