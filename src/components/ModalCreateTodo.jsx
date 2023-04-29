@@ -8,7 +8,7 @@ const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
   const { id } = useParams();
   const [data, setData] = useState({
     activity_group_id: id,
-    priority: "",
+    priority: "very-high",
     title: "",
     color: "",
   });
