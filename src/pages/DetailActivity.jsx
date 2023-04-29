@@ -165,7 +165,7 @@ const DetailActivity = () => {
                 }, 300);
               }}
               autoFocus
-              className="text-4xl font-semibold focus:outline-none bg-neutral-100 border-b-black border-b pb-2 w-max"
+              className="text-4xl font-semibold z-[100] focus:outline-none bg-neutral-100 border-b-black border-b pb-2 w-max"
             />
           ) : (
             <h1

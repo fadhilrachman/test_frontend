@@ -4,7 +4,7 @@ import Button from "./Button";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const ModalCreateTodo = ({ show, onHide, text, handleDelete }) => {
+const ModalCreateTodo = ({ show, onHide }) => {
   const { id } = useParams();
   const [data, setData] = useState({
     activity_group_id: id,
