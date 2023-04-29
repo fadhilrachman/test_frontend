@@ -188,9 +188,7 @@ const DetailActivity = () => {
         <div className="flex items-center">
           <div
             data-cy="todo-sort-button"
-            className={`border mr-3 rounded-full ${
-              !show.create && "z-[100]"
-            } flex items-center justify-center h-14 w-14 hover:cursor-pointer text-neutral-500 bg-white `}
+            className={`border mr-3 rounded-full  flex items-center justify-center h-14 w-14 hover:cursor-pointer text-neutral-500 bg-white `}
             onClick={() => setShow({ option: !show.option })}
           >
             <i class="bi bi-arrow-up  "></i>
