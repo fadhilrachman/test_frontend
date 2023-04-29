@@ -206,7 +206,7 @@ const DetailActivity = () => {
       <div className="mt-10 ">
         {show.option && (
           <div
-            className="w-56 text-[#4A4A4A] font-medium absolute top-16 rounded-t-xl bg-white right-32 rounded-b-xl border-t border-x"
+            className="w-56 text-[#4A4A4A] z-[100] font-medium absolute top-16 rounded-t-xl bg-white right-32 rounded-b-xl border-t border-x"
             data-cy="sort-selection"
           >
             {listFilter.map((val) => (
