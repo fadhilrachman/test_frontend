@@ -110,7 +110,7 @@ const ModalCreateTodo = ({ show, onHide }) => {
               onBlur={handleBlur}
               tabIndex={1}
               className="w-max mt-3"
-              data-cy="modal-add-priority-item"
+              data-cy="modal-add-priority-dropdown"
             >
               <div
                 className="bg-neutral-100 py-3  px-4 w-52 border rounded-t  flex justify-between  items-center hover:cursor-pointer"
