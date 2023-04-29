@@ -4,9 +4,8 @@ const Button = (props) => {
   return (
     <button
       {...props}
-      className={`bg-sky-500 rounded-full font-bold text-white px-8 flex justify-between z-[100] items-center py-4 ${
-        props.disabled && "opacity-50"
-      }`}
+      className={`bg-sky-500 rounded-full font-bold text-white px-8 flex justify-between z-[100] items-center py-4 
+      `}
     >
       {props.variant === "todo" ? (
         "Simpan"

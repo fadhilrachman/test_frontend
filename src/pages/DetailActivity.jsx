@@ -243,6 +243,7 @@ const DetailActivity = () => {
               <div className="flex items-center ">
                 <input
                   type="checkbox"
+                  className="z-[100]"
                   name="list"
                   checked={val.is_active === 0 && true}
                   data-cy="todo-item-checkbox"
