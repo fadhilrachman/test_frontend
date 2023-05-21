@@ -196,7 +196,7 @@ const DetailActivity = () => {
           </div>
           <Button
             onClick={() => setShow({ create: true })}
-            data-cy="todo-add-button"
+            data-cy="modal-add"
           />
         </div>
       </div>
